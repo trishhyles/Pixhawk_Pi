@@ -16,12 +16,12 @@ def arm_and_takeoff(aTargetAltitude):
     if vehicle.mode.name == "INITIALISING":
         print "Waiting for vehicle to initialise"
         time.sleep(1)
-        '''
+        
     while vehicle.gps_0.fix_type < 2:
         print "Waiting for GPS...:", vehicle.gps_0.fix_type
         time.sleep(1)
-'''
-    print 'No GPS mode'
+
+    #print 'No GPS mode'
     print "Arming motors"
     # Copter should arm in GUIDED mode
     #vehicle.mode    = VehicleMode("GUIDED")
@@ -48,25 +48,20 @@ def arm_and_takeoff(aTargetAltitude):
             break;
         time.sleep(1)
 
-'''
-# Get all vehicle attributes (state)
-print "\nGet all vehicle attribute values:"
-print " Location: %s" % vehicle.location
-print " Attitude: %s" % vehicle.attitude
-print " Velocity: %s" % vehicle.velocity
-print " GPS: %s" % vehicle.gps_0
-print " Groundspeed: %s" % vehicle.groundspeed
-print " Airspeed: %s" % vehicle.airspeed
-print " Mount status: %s" % vehicle.mount_status
-print " Battery: %s" % vehicle.battery
-print " Rangefinder: %s" % vehicle.rangefinder
-print " Rangefinder distance: %s" % vehicle.rangefinder.distance
-print " Rangefinder voltage: %s" % vehicle.rangefinder.voltage
-print " Mode: %s" % vehicle.mode.name    # settable
-print " Armed: %s" % vehicle.armed    # settable
-'''
 
+
+'''
+Arm the Copter and fly to 3meters height
+'''
 arm_and_takeoff(3)
+
+tiem.sleep(10)
+ 
+print("Setting LAND mode...")
+vehicle.mode = VehicleMode("LAND")
+vehicle.flush()
+
+print("Completed")
 
 '''
 api start "C:\Program Files (x86)\MAVProxy\examples\arm_and_takeoff.py"
