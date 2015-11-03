@@ -48,8 +48,6 @@ def arm_and_takeoff(aTargetAltitude):
             break;
         time.sleep(1)
 
-
-
 '''
 Arm the Copter and fly to 3meters height
 '''
@@ -62,6 +60,7 @@ vehicle.mode = VehicleMode("LAND")
 vehicle.flush()
 
 print("Completed")
+
 
 '''
 api start "C:\Program Files (x86)\MAVProxy\examples\arm_and_takeoff.py"
